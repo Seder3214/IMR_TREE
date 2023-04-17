@@ -1,6 +1,6 @@
 let modInfo = {
 	name: "IMR: TREE",
-	id: "IMR-T",
+	id: "IMR-TREE",
 	author: "Seder3214",
 	pointsName: "mass",
 	modFiles: ["layers/main.js", "tree.js"],
