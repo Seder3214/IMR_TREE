@@ -3,7 +3,7 @@ let modInfo = {
 	id: "IMR-TREE",
 	author: "Seder3214",
 	pointsName: "mass",
-	modFiles: ["layers/main.js", "tree.js"],
+	modFiles: ["layers/main.js","layers/rage.js","layers/bh.js", "tree.js"],
 
 	discordName: "",
 	discordLink: "",
@@ -13,11 +13,13 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.1",
+	num: "0.2",
 	name: "IMR: TREE - Mass",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
+<h3 style='color: red'>v0.2 - Rage Powers</h3><br>
+- Added pre-black hole content.<br>
 	<h3 style='color: gray'>v0.1 - Mass</h3><br>
 		- Added pre-rage power content.<br>`
 
@@ -41,9 +43,14 @@ function getPointGen() {
 	if(!canGenPoints())
 		return new Decimal(1)
 	let gain = new Decimal(1)
+	// Buyables effects
 	if (player.m.buyables[11].gte(1)) gain = gain.add(buyableEffect("m",11).x)
-	if (player.m.buyables[101].gte(1)) gain = gain.pow(1.15)
+	if (player.r.buyables[11].gte(1)) gain = gain.mul(buyableEffect("r",11).x)
+	// Rank Effects
 	if (player.m.points.gte(6)) gain = gain.times(Decimal.pow(2,player.m.points.times(3)))
+	// Tier Effects
+	if (player.m.buyables[101].gte(1)) gain = gain.pow(1.15)
+	if (player.m.buyables[101].gte(2)) gain = gain.mul(10)
 	return gain
 }
 

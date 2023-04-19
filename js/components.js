@@ -231,7 +231,6 @@ function loadVue() {
 		`
 	
 	})
-
 	// Displays the main resource for the layer
 	Vue.component('main-display', {
 		props: ['layer', 'data'],

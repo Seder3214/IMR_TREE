@@ -210,6 +210,7 @@ function prestigeNotify(layer) {
 	if (tmp[layer].autoPrestige || tmp[layer].passiveGeneration) return false
 	else if (tmp[layer].type == "static") return tmp[layer].canReset
 	else if (tmp[layer].type == "normal") return (tmp[layer].canReset && (tmp[layer].resetGain.gte(player[layer].points.div(10))))
+	else if (tmp[layer].type == "normalMass") return (tmp[layer].canReset && (tmp[layer].resetGain.gte(player[layer].points.div(10))))
 	else return false
 }
 

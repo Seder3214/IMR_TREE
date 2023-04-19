@@ -28,6 +28,13 @@ function getResetGain(layer, useType = null) {
 		if (gain.gte(tmp[layer].softcap)) gain = gain.pow(tmp[layer].softcapPower).times(tmp[layer].softcap.pow(decimalOne.sub(tmp[layer].softcapPower)))
 		gain = gain.times(tmp[layer].directMult)
 		return gain.floor().max(0);
+	} 
+	else if (type=="normalMass"){
+		if (tmp[layer].baseAmount.lt(tmp[layer].requires)) return decimalZero
+		let gain = tmp[layer].baseAmount.div(tmp[layer].requires).pow(tmp[layer].exponent).times(tmp[layer].gainMult).pow(tmp[layer].gainExp)
+		if (gain.gte(tmp[layer].softcap)) gain = gain.pow(tmp[layer].softcapPower).times(tmp[layer].softcap.pow(decimalOne.sub(tmp[layer].softcapPower)))
+		gain = gain.times(tmp[layer].directMult)
+		return gain.floor().max(0);
 	} else if (type=="custom"){
 		return layers[layer].getResetGain()
 	} else {
@@ -63,7 +70,14 @@ function getNextAt(layer, canMax=false, useType = null) {
 		next = next.root(tmp[layer].gainExp).div(tmp[layer].gainMult).root(tmp[layer].exponent).times(tmp[layer].requires).max(tmp[layer].requires)
 		if (tmp[layer].roundUpCost) next = next.ceil()
 		return next;
-	} else if (type=="custom"){
+	} 
+	else if (type=="normalMass"){
+		let next = tmp[layer].resetGain.add(1).div(tmp[layer].directMult)
+		if (next.gte(tmp[layer].softcap)) next = next.div(tmp[layer].softcap.pow(decimalOne.sub(tmp[layer].softcapPower))).pow(decimalOne.div(tmp[layer].softcapPower))
+		next = next.root(tmp[layer].gainExp).div(tmp[layer].gainMult).root(tmp[layer].exponent).times(tmp[layer].requires).max(tmp[layer].requires)
+		if (tmp[layer].roundUpCost) next = next.ceil()
+		return next;
+	}else if (type=="custom"){
 		return layers[layer].getNextAt(canMax)
 	} else {
 		return decimalZero
@@ -118,6 +132,8 @@ function canReset(layer)
 	if (layers[layer].canReset!== undefined)
 		return run(layers[layer].canReset, layers[layer])
 	else if(tmp[layer].type == "normal")
+		return tmp[layer].baseAmount.gte(tmp[layer].requires)
+		else if(tmp[layer].type == "normalMass")
 		return tmp[layer].baseAmount.gte(tmp[layer].requires)
 	else if(tmp[layer].type== "static")
 		return tmp[layer].baseAmount.gte(tmp[layer].nextAt) 
