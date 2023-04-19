@@ -4,7 +4,7 @@ addLayer("bh", {
     image: "resources/bh.png",
     position: -1, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
-        unlocked: true,
+        unlocked: false,
 		points: new Decimal(0),
     }},
     tabFormat: {
@@ -52,7 +52,7 @@ layerDataReset('e')
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
-        {key: "r", description: "R: Reset mass, but get a rank", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+        {key: "b", description: "b: Reset everything for Black Hole", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return (player.m.buyables[101].gte(3) || player.bh.unlocked)}
+    layerShown(){return (player.m.buyables[101].gte(3)) || player.bh.unlocked}
 })

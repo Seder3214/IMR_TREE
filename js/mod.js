@@ -13,12 +13,12 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.2",
-	name: "IMR: TREE - Mass",
+	num: "0.2.1",
+	name: "IMR: TREE - Rage Powers",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-<h3 style='color: red'>v0.2 - Rage Powers</h3><br>
+<h3 style='color: red'>v0.2.1 - Rage Powers</h3><br>
 - Added pre-black hole content.<br>
 	<h3 style='color: gray'>v0.1 - Mass</h3><br>
 		- Added pre-rage power content.<br>`
