@@ -58,7 +58,7 @@ autoPrestige() {
       if (hasUpgrade("r", 14)) maxHyper = maxHyper.mul(1.5)
       if (player.m.points.gte(13)) maxHyper.add(player.r.buyables[11].pow(2))
             if (player.m.points.gte(5)) maxSuper = maxSuper.add(50)
-            if (player.m.buyables[11].gte(maxHyper)) return cost = cost.pow(x.add(1).times(0.15).add(1)).pow(player.m.points.gte(8)?new Decimal(2.15).div(1.3).div(player.m.points.gte(10)?player.r.points.div(2).pow(0.05).min(1.25):1):2.15).pow(1.05)
+            if (player.m.buyables[11].gte(maxHyper)) return cost = cost.pow(x.add(1).times(0.15).add(1)).pow(player.m.points.gte(8)?new Decimal(2.15).div(1.3).div(player.m.points.gte(10)?player.r.points.div(2).pow(0.05).min(1.25).max(1):1):2.15).pow(1.05)
                     if (player.m.buyables[11].gte(maxSuper)) return cost = cost.pow(x.add(1).times(0.15).add(1)).pow(player.m.points.gte(8)?new Decimal(2.15).div(1.3).div(player.m.points.gte(10)?player.r.points.div(2).pow(0.05).min(1.25):1):2.15)
             if (player.m.buyables[11].gte(1)) return cost = cost.pow(x.add(1).times(0.15).add(1))
     },
@@ -71,8 +71,8 @@ autoPrestige() {
         if (player.m.points.gte(5)) maxSuper = maxSuper.add(50)
         let cost = new Decimal(500)
         if (player.m.points.gte(4)) cost = cost.div(3)
-        if (player.m.buyables[12].gte(maxHyper)) return cost = cost.pow(x.add(1).times(0.1).add(1)).pow(player.m.points.gte(8)?new Decimal(1.15).div(1.3).div(player.m.points.gte(10)?player.r.points.div(2).pow(0.05).min(1.25):1):1.15).pow(1.05)
-        if (player.m.buyables[12].gte(maxSuper)) return cost = cost.pow(x.add(1).times(0.1).add(1)).pow(player.m.points.gte(8)?new Decimal(1.15).div(1.3).div(player.m.points.gte(10)?player.r.points.div(2).pow(0.05).min(1.25):1):1.15)
+        if (player.m.buyables[12].gte(maxHyper)) return cost = cost.pow(x.add(1).times(0.1).add(1)).pow(player.m.points.gte(8)?new Decimal(1.15).div(1.3).div(player.m.points.gte(10)?player.r.points.div(2).pow(0.05).min(1.25).max(1):1):1.15).pow(1.05)
+        if (player.m.buyables[12].gte(maxSuper)) return cost = cost.pow(x.add(1).times(0.1).add(1)).pow(player.m.points.gte(8)?new Decimal(1.15).div(1.3).div(player.m.points.gte(10)?player.r.points.div(2).pow(0.05).min(1.25).max(1):1):1.15)
         if (player.m.buyables[12].gte(1)) return cost = cost.pow(x.add(1).times(0.1).add(1))
 return cost
     },
@@ -84,8 +84,8 @@ return cost
         if (hasUpgrade("r", 14)) maxHyper = maxHyper.mul(1.5)
         if (player.m.points.gte(13)) maxHyper = maxHyper.add(player.r.buyables[11].pow(2))
         if (player.m.points.gte(5)) maxSuper = maxSuper.add(50)
-        if (player.m.buyables[13].gte(maxHyper)) return cost = cost.pow(x.add(1).times(0.15).add(1)).pow(player.m.points.gte(8)?new Decimal(1.15).div(1.3).div(player.m.points.gte(10)?player.r.points.div(2).pow(0.05).min(1.25):1):1.15).pow(1.05)
-        if (player.m.buyables[13].gte(maxSuper)) return cost = cost.pow(x.add(1).times(0.15).add(1)).pow(player.m.points.gte(8)?new Decimal(1.15).div(1.3).div(player.m.points.gte(10)?player.r.points.div(2).pow(0.05).min(1.25):1):1.15)
+        if (player.m.buyables[13].gte(maxHyper)) return cost = cost.pow(x.add(1).times(0.15).add(1)).pow(player.m.points.gte(8)?new Decimal(1.15).div(1.3).div(player.m.points.gte(10)?player.r.points.div(2).pow(0.05).min(1.25).max(1):1):1.15).pow(1.05)
+        if (player.m.buyables[13].gte(maxSuper)) return cost = cost.pow(x.add(1).times(0.15).add(1)).pow(player.m.points.gte(8)?new Decimal(1.15).div(1.3).div(player.m.points.gte(10)?player.r.points.div(2).pow(0.05).min(1.25).max(1):1):1.15)
         if (player.m.buyables[13].gte(1)) return cost = cost.pow(x.add(1).times(0.15).add(1))
 return cost
     },
@@ -121,8 +121,8 @@ return cost
               if (hasUpgrade("r", 14)) maxHyper = maxHyper.mul(1.5)
               if (player.m.points.gte(13)) maxHyper.add(player.r.buyables[11].pow(2))
                     if (player.m.points.gte(5)) maxSuper = maxSuper.add(50)
-                    if (player.m.buyables[11].gte(maxHyper)) return cost = cost.pow(x.add(1).times(0.15).add(1)).pow(player.m.points.gte(8)?new Decimal(2.15).div(1.3).div(player.m.points.gte(10)?player.r.points.div(2).pow(0.05).min(1.25):1):2.15).pow(1.05)
-                            if (player.m.buyables[11].gte(maxSuper)) return cost = cost.pow(x.add(1).times(0.15).add(1)).pow(player.m.points.gte(8)?new Decimal(2.15).div(1.3).div(player.m.points.gte(10)?player.r.points.div(2).pow(0.05).min(1.25):1):2.15)
+                    if (player.m.buyables[11].gte(maxHyper)) return cost = cost.pow(x.add(1).times(0.15).add(1)).pow(player.m.points.gte(8)?new Decimal(2.15).div(1.3).div(player.m.points.gte(10)?player.r.points.div(2).pow(0.05).min(1.25).max(1):1):2.15).pow(1.05)
+                            if (player.m.buyables[11].gte(maxSuper)) return cost = cost.pow(x.add(1).times(0.15).add(1)).pow(player.m.points.gte(8)?new Decimal(2.15).div(1.3).div(player.m.points.gte(10)?player.r.points.div(2).pow(0.05).min(1.25).max(1):1):2.15)
                     if (player.m.buyables[11].gte(1)) return cost = cost.pow(x.add(1).times(0.15).add(1))},
             display() {
                 let maxSuper = new Decimal(30) 
@@ -168,8 +168,8 @@ return cost
                 if (player.m.points.gte(5)) maxSuper = maxSuper.add(50)
                 let cost = new Decimal(500)
                 if (player.m.points.gte(4)) cost = cost.div(3)
-                if (player.m.buyables[12].gte(maxHyper)) return cost = cost.pow(x.add(1).times(0.1).add(1)).pow(player.m.points.gte(8)?new Decimal(1.15).div(1.3).div(player.m.points.gte(10)?player.r.points.div(2).pow(0.05).min(1.25):1):1.15).pow(1.05)
-                if (player.m.buyables[12].gte(maxSuper)) return cost = cost.pow(x.add(1).times(0.1).add(1)).pow(player.m.points.gte(8)?new Decimal(1.15).div(1.3).div(player.m.points.gte(10)?player.r.points.div(2).pow(0.05).min(1.25):1):1.15)
+                if (player.m.buyables[12].gte(maxHyper)) return cost = cost.pow(x.add(1).times(0.1).add(1)).pow(player.m.points.gte(8)?new Decimal(1.15).div(1.3).div(player.m.points.gte(10)?player.r.points.div(2).pow(0.05).min(1.25).max(1):1):1.15).pow(1.05)
+                if (player.m.buyables[12].gte(maxSuper)) return cost = cost.pow(x.add(1).times(0.1).add(1)).pow(player.m.points.gte(8)?new Decimal(1.15).div(1.3).div(player.m.points.gte(10)?player.r.points.div(2).pow(0.05).min(1.25).max(1):1):1.15)
                 if (player.m.buyables[12].gte(1)) return cost = cost.pow(x.add(1).times(0.1).add(1))
         return cost},
             display() {
@@ -213,8 +213,8 @@ return cost
                 if (hasUpgrade("r", 14)) maxHyper = maxHyper.mul(1.5)
                 if (player.m.points.gte(13)) maxHyper = maxHyper.add(player.r.buyables[11].pow(2))
                 if (player.m.points.gte(5)) maxSuper = maxSuper.add(50)
-                if (player.m.buyables[13].gte(maxHyper)) return cost = cost.pow(x.add(1).times(0.15).add(1)).pow(player.m.points.gte(8)?new Decimal(1.15).div(1.3).div(player.m.points.gte(10)?player.r.points.div(2).pow(0.05).min(1.25):1):1.15).pow(1.05)
-                if (player.m.buyables[13].gte(maxSuper)) return cost = cost.pow(x.add(1).times(0.15).add(1)).pow(player.m.points.gte(8)?new Decimal(1.15).div(1.3).div(player.m.points.gte(10)?player.r.points.div(2).pow(0.05).min(1.25):1):1.15)
+                if (player.m.buyables[13].gte(maxHyper)) return cost = cost.pow(x.add(1).times(0.15).add(1)).pow(player.m.points.gte(8)?new Decimal(1.15).div(1.3).div(player.m.points.gte(10)?player.r.points.div(2).pow(0.05).min(1.25).max(1):1):1.15).pow(1.05)
+                if (player.m.buyables[13].gte(maxSuper)) return cost = cost.pow(x.add(1).times(0.15).add(1)).pow(player.m.points.gte(8)?new Decimal(1.15).div(1.3).div(player.m.points.gte(10)?player.r.points.div(2).pow(0.05).min(1.25).max(1):1):1.15)
                 if (player.m.buyables[13].gte(1)) return cost = cost.pow(x.add(1).times(0.15).add(1))
         return cost},
             display() {                let maxSuper = new Decimal(30) 
@@ -260,7 +260,7 @@ return cost
             if (player.m.points.gte(5)) table += "<br>Rank 5: Super Mass Buyables starts 50 later."
             if (player.m.points.gte(6)) table += "<br>Rank 6: Mass is boosted by 2<sup>x*3</sup>, where x is rank. Currently: x" + format(Decimal.pow(2,player.m.points.times(3)))
             if (player.m.points.gte(8)) table += "<br>Rank 8: Super Mass Buyables scaling is 30% weaker."
-            if (player.m.points.gte(10)) table += "<br>Rank 10: Super Mass Buyables scaling is weaker by Rage Powers. Currently: " + format(player.r.points.div(2).pow(0.05).sub(1).mul(100).min(25)) + "%"
+            if (player.m.points.gte(10)) table += "<br>Rank 10: Super Mass Buyables scaling is weaker by Rage Powers. Currently: " + format(player.r.points.div(2).pow(0.05).sub(1).mul(100).min(25).max(0)) + "%"
             if (player.m.points.gte(13)) table += "<br>Rank 13: Tickspeeds scales Super Mass Buyables start later. Currently: +" + format(player.r.buyables[11].pow(1.4))
             return table },
         },
