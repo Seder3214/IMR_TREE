@@ -130,7 +130,7 @@ return cost
                 if (player.m.points.gte(5)) maxSuper = maxSuper.add(50)
                 if (player.m.points.gte(13)) maxHyper = maxHyper.add(player.r.buyables[11].pow(2))
                 if (hasUpgrade("r", 14)) maxHyper = maxHyper.mul(1.5)
-                let res = player.m.buyables[11].gte(maxHyper)? " Hyper":player.m.buyables[13].gte(maxSuper)? " Super":""
+                let res = player.m.buyables[11].gte(maxHyper)? " Hyper":player.m.buyables[11].gte(maxSuper)? " Super":""
                 if (hasUpgrade("r",11 )) return "<h3>[" + formatWhole(player.m.buyables[11]) + ` + ` + formatWhole(this.effect().bonus) + `] - [` + res + ` Muscler ]</h3><span style='font-size: 12px'><br> Cost: <b>` + formatMass(this.cost()) + "  of mass</b><br>Power: +" + formatMass(this.effect().step,3) + "<br>Effect: +" + formatMass(this.effect().x,3) + " to mass gain</span>"
                  else return "<h3>[" + formatWhole(player.m.buyables[11]) + `] - [` + res + ` Muscler ]</h3><span style='font-size: 12px'><br> Cost: <b>` + formatMass(this.cost()) + "  of mass</b><br>Power: +" + formatMass(this.effect().step,3) + "<br>Effect: +" + formatMass(this.effect().x,3) + " to mass gain</span>" },
             canAfford() { return player.points.gte(this.cost()) },
@@ -175,10 +175,12 @@ return cost
             display() {
                 let maxSuper = new Decimal(30) 
                 let maxHyper = new Decimal(275)
+
+                if (player.m.points.gte(5)) maxSuper = maxSuper.add(50)
                 if (hasUpgrade("r", 14)) maxHyper = maxHyper.mul(1.5)
                 if (player.m.points.gte(13)) maxHyper = maxHyper.add(player.r.buyables[11].pow(2))
-                if (player.m.points.gte(5)) maxSuper = maxSuper.add(50)
-                let res = player.m.buyables[12].gte(maxHyper)? " Hyper":player.m.buyables[13].gte(maxSuper)? " Super":""
+
+                let res = player.m.buyables[12].gte(maxHyper)? " Hyper":player.m.buyables[12].gte(maxSuper)? " Super":""
            if (hasUpgrade("r", 12)) return "<h3>[" + formatWhole(player.m.buyables[12]) + ` + ` + formatWhole(this.effect().bonus) + `] - [` + res + ` Booster ]` + "</h3><span style='font-size: 12px'><br> Cost: <b>" + formatMass(this.cost()) + "  of mass</b><br>Power: +x" + format(this.effect().step,3) + "<br>Effect: x" + format(this.effect().x,3) + " to [Muscler] power</span>"
         else return "<h3>[" + formatWhole(player.m.buyables[12]) + `] - [` + res + ` Booster ]` + "</h3><span style='font-size: 12px'><br> Cost: <b>" + formatMass(this.cost()) + "  of mass</b><br>Power: +x" + format(this.effect().step,3) + "<br>Effect: x" + format(this.effect().x,3) + " to [Muscler] power</span>" },
             canAfford() { return player.points.gte(this.cost()) },
@@ -223,8 +225,8 @@ return cost
                 if (player.m.points.gte(13)) maxHyper = maxHyper.add(player.r.buyables[11].pow(2))
                 if (player.m.points.gte(5)) maxSuper = maxSuper.add(50)
                  let res = player.m.buyables[13].gte(maxHyper)? " Hyper":player.m.buyables[13].gte(maxSuper)? " Super":""
-                 if (hasUpgrade("r", 16)) return "<h3>[" + formatWhole(player.m.buyables[13]) + ` + ` + formatWhole(this.effect().bonus) + `] - [` + res + ` Booster ]` + "</h3><span style='font-size: 12px'><br> Cost: <b>" + formatMass(this.cost()) + "  of mass</b><br>Power: +x" + format(this.effect().step,3) + "<br>Effect: x" + format(this.effect().x,3) + " to [Muscler] power</span>"
-                 else return "<h3>[" + formatWhole(player.m.buyables[13]) + `] - [` + res + ` Booster ]` + "</h3><span style='font-size: 12px'><br> Cost: <b>" + formatMass(this.cost()) + "  of mass</b><br>Power: +x" + format(this.effect().step,3) + "<br>Effect: x" + format(this.effect().x,3) + " to [Muscler] power</span>" },
+                 if (hasUpgrade("r", 16)) return "<h3>[" + formatWhole(player.m.buyables[13]) + ` + ` + formatWhole(this.effect().bonus) + `] - [` + res + ` Stronger ]` + "</h3><span style='font-size: 12px'><br> Cost: <b>" + formatMass(this.cost()) + "  of mass</b><br>Power: +x" + format(this.effect().step,3) + "<br>Effect: x" + format(this.effect().x,3) + " to [Muscler] power</span>"
+                 else return "<h3>[" + formatWhole(player.m.buyables[13]) + `] - [` + res + ` Stronger ]` + "</h3><span style='font-size: 12px'><br> Cost: <b>" + formatMass(this.cost()) + "  of mass</b><br>Power: +x" + format(this.effect().step,3) + "<br>Effect: x" + format(this.effect().x,3) + " to [Muscler] power</span>" },
             canAfford() { return player.points.gte(this.cost()) },
             buy() {
                 player.points = player.points.sub(this.cost())
